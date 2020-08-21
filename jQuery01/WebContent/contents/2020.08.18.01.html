@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	//jQuery(); || $(); 제이쿼리 객체를 리턴합니다.
+	/*
+	$(document).ready(function(){
+		
+	});
+	*/
+	$(function(){
+		let mdiv = document.getElementsByTagName("div")[0];
+		console.log(mdiv);//자바스크립트 원형객체
+		let jqdiv = $(mdiv);
+		console.log($(mdiv));//제이쿼리 객체
+		console.log(jqdiv[0]);//자바스크립트 원형객체
+		console.log($("div"));//기존 엘리먼트 가져오기
+		console.log($("<p></p>"));// P 엘리먼트 생성하기
+		console.log($("*"));//모든 엘리먼트 선택자
+		console.log($(".mc"));//클래스 선택자
+		console.log($("#mi"));//아이디 선택자
+		console.log($("#mi,.mc"));//여러개 선택자
+		//하이픈 인식하는 속성 접두어 선택자
+		console.log($("[aaa|=en]")); //하이픈 인식 접두어
+		console.log($('[aaa*=e]')); //모든위치
+		console.log($('[aaa$=p]')); //끝문자
+		console.log($('[aaa=dep]')); //해당 값만
+		console.log($('[aaa!=cep]')); //부정
+		console.log($('[aaa^=e]')); //시작위치
+		console.log($('[aaa]')); //해당속성 엘리먼트만
+		console.log($('p[aaa][bbb]')); //p태그중 aaa속성과 bbb속성이 존재하는 엘리먼트를 가져옵니다.
+		console.log($('.aaa#bbb')); //a태그중 aaa클래스와 아이디가 bbb인 엘리먼트만 가져옵니다.(and)
+		console.log($('a,.aaa,#bbb')); //a 태그 또는 aaa클래스 또는 bbb 아이디인 엘리먼트를 모두 가져옵니다.(or)
+		$('div:eq(0)').text("저를 선택하셨네요?"); //v3.4 deprecation -> .eq()
+		$('div').eq(0).text("나만 선택함");
+		//$('p:even') deprecation -> $(p).filter(":even")
+		$('p').filter(":even").css({width:"50px",height:"50px"}).css("background","green");
+		let csObj = {width:"50px",height:"50px",background:"red"}
+		$('p').filter(":odd").css(csObj);
+		$('p').first(); // p 중의 첫번째 인덱스 jq 엘리먼트 반환 == .eq();
+		$('p').get(1); // $($('p').get(1)) == $('p').eq(1)
+		$('p').eq(0)[0]; // == $('p').get(0)
+		console.log($('p').slice(2,4)); 
+		$(':header') // h 태그만 선택된다.
+		$('p:last') // p 태그중 마지막 엘리먼트 deplcation -> $('p').filter('last')
+		console.log($('p:not([aaa])')); // p 태그 중 aaa 속성이 없는 거
+		console.log($('p').not('[aaa]')); // p 태그 중 aaa 속성이 없는 거
+		$('')
+	});
+</script>
+</head>
+<body>
+	<div></div>
+	<div id="mi"></div>
+	<div class="mc"></div>
+	<p aaa="en aa"></p><!-- 한개의 태그에 두개의 클래스 적용 (en,aa)-->
+	<p aaa="en-en"></p>
+	<p aaa="pen"></p>
+	<p aaa="ppp"></p>
+	<p aaa="dep"></p>
+	<p aaa="cep"></p>
+	<p aaa="cc" bbb="dd"> </p>
+	<h1 aaa="cc" bbb="dd"></h1>
+	<p></p>
+	<p></p>
+	
+</body>
+</html>

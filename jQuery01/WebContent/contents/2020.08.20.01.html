@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		console.log($('div:first-child'));
+		//선택된 div 태그 중 자신이 부모의 첫번째 자식인 div
+		//$('span:first-child').addClass("aaa");
+		
+		$('span:first-of-type').addClass("aaa");
+		//last-child, last-of-type 퍼스트와 반대로 마지막 엘리먼트 선택
+		
+		console.log($('p*:nth-child(1)'));
+		//nth-child(number) 부모의 number 번째 자식인 엘리먼트
+		//nth-of-type(numver) 해당 type 중에서 n번째 자식
+		
+		$('p:nth-last-child(1)');
+		//:nth-last-child(n) 부모의 끝에서 n번째 자식
+		//:nth-last-of-type() 부모의 끝에서 해당 타입의 n번째 자식
+		
+		//:only-child 혼자 있는 것
+		//:only-of-type 타입 중 혼자 있는 거
+		
+		//내용 선택자 contents selector
+		console.log($('*:contains(스팬)'));
+		
+		console.log($('p:empty'));
+		//내용이 비어있는 태그찾기 (텍스트 및 태그 포함)
+		//var s; var s="";
+		
+		console.log($('p:has(span)'));
+		//p태그와 span태그를 같이 내포하고 있는 거 찾기
+		
+		console.log($('ts:parent'))
+		//자신이 부모인 태그 찾기(부모를 찾는것이 아니라 p태그중에 자식태그를 가지고 있는 것들)
+		//텍스트 및 태그 포함
+		
+		console.log($(''))
+	});
+</script>
+<style>
+	.aaa{background:yellow; color:blue;}
+</style>
+</head>
+<body>
+	<div aaa='bbb1'>
+		<p></p><div></div>
+	</div>
+	<div>
+		<h1></h1><h3></h3>
+	</div>
+	<p>
+		<span>첫번째 스팬</span>
+		<span>두번째 스팬</span>
+		<span>세번째 스팬</span>
+	</p>
+	<p>
+		<a>첫번째 앵커</a>
+		<span>두번째 스패닝</span>
+		<span>세번째 스패닝</span>
+	</p>
+	<p>
+		<a>두번째 앵커</a>
+	</p>
+	<p></p>
+	<p><span></span></p>
+	
+	<ts>안녕</ts>
+	<ts><aaa></aaa></ts>
+	<ts></ts>
+	<ts></ts>
+</body>
+</html>
